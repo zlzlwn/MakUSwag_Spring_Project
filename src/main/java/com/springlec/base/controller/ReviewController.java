@@ -23,6 +23,8 @@ public class ReviewController {
 	    List<ReviewDto> listDao = service.listDao(page, numOfTuplePerPage);// 서비스 계층에서 데이터 조회
 	    model.addAttribute("reviewlist", listDao);
 
+	    
+	    //여기서부터 페이징
 	    int totalCount = service.getTotalCount(); // 전체 데이터 개수 조회
 	    int totalPage = (int) Math.ceil((double) totalCount / numOfTuplePerPage); // 전체 페이지 개수 계산
 	    int pageBlockSize = 5;
