@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springlec.base.dao.UserDao">
+
+	<select id="whologin" resultType="com.springlec.base.model.UserDto">
+		SELECT userId, userPw, name FROM user WHERE userId = #{userId} AND userPw = #{userPasswd}
+	</select>
+	
+	<select id="findId" resultType="com.springlec.base.model.UserDto">
+		SELECT userId, name, email FROM user WHERE name = #{name} AND email = #{email}
+	</select>
+	
+	<select id="findPw" resultType="com.springlec.base.model.UserDto">
+		SELECT userId, userPw, name, email FROM user WHERE userId = #{userId} AND name = #{name} AND email = #{email}
+	</select>
+	
+</mapper>

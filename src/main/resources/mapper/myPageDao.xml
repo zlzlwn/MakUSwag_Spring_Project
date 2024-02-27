@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springlec.base.dao.MyPageDao">
+
+	<select id="myPageDao"
+		resultType="com.springlec.base.model.MyPageDto">
+
+
+		SELECT p.purSeq, p.pQty, p.pPrice, p.pStackPoint, p.pDate, pr.proName
+		FROM purchase AS p
+		JOIN product AS pr ON p.proSeq = pr.proSeq
+		WHERE p.pDate BETWEEN #{startDate} AND #{endDate}
+		AND p.userId = #{getUserId} 
+
+
+	</select>
+</mapper>
